@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Tilaks Technology | LG Commercial Display Distributor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --lg-red: #a50034;
+            --navy: #002147;
+            --light-bg: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background: var(--light-bg); color: #333; overflow-x: hidden; }
+
+        /* Navigation */
+        nav {
+            background: #fff; padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        .flex-nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--navy); text-decoration: none; }
+        .logo span { color: var(--lg-red); }
+        .nav-links a { text-decoration: none; color: var(--navy); margin-left: 30px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--lg-red); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(45deg, #002147cc, #a50034cc), url('https://www.lg.com/global/business/images/main/id-main-kv-pc-1.jpg');
+            background-size: cover; background-position: center;
+            color: white; padding: 120px 0; text-align: center;
+        }
+
+        /* Product Grid */
+        .section-padding { padding: 80px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .product-card {
+            background: #fff; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;
+            cursor: pointer; position: relative; border: 1px solid #eee;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .product-img { width: 100%; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-img img { width: 80%; transition: 0.3s; }
+        .product-info { padding: 20px; }
+        .product-info h3 { color: var(--navy); margin-bottom: 10px; }
+        .view-btn { color: var(--lg-red); font-weight: bold; font-size: 0.9rem; text-decoration: none; }
+
+        /* Detailed Product Page (Modal) */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); display: none; justify-content: center;
+            align-items: center; z-index: 2000; padding: 20px;
+        }
+        .modal-content {
+            background: white; width: 100%; max-width: 900px; max-height: 90vh;
+            border-radius: 15px; overflow-y: auto; position: relative; display: flex; flex-wrap: wrap;
+        }
+        .modal-close { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: #333; z-index: 10; }
+        .modal-left { flex: 1; min-width: 300px; background: #f9f9f9; padding: 40px; display: flex; align-items: center; justify-content: center; }
+        .modal-right { flex: 1; min-width: 350px; padding: 40px; }
+        
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .spec-table td { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .spec-label { font-weight: bold; color: var(--navy); width: 40%; }
+
+        /* Footer */
+        footer { background: var(--navy); color: white; padding: 60px 0; text-align: center; }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 10px; display: block; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container flex-nav">
+            <a href="#" class="logo">RAJ TILAKS <span>TECHNOLOGY</span></a>
+            <div class="nav-links">
+                <a href="#home">HOME</a>
+                <a href="#products">COMMERCIAL TV RANGE</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="hero">
+        <div class="container">
+            <h1>Expert LG Information Display Distribution</h1>
+            <p>High-Performance Solutions for Business and Industry</p>
+        </div>
+    </div>
+
+    <section id="products" class="section-padding container">
+        <h2 style="text-align: center; margin-bottom: 50px; color: var(--navy);">LG Commercial Product Catalog</h2>
+        
+        <div class="grid">
+            <div class="product-card" onclick="openDetails('uhd')">
+                <div class="product-img">
+                    <i class="fas fa-tv fa-4x" style="color:#ccc;"></i>
+                </div>
+                <div class="product-info">
+                    <h3>LG UH5J-H Series</h3>
+                    <p style="font-size:0.8rem; color:#666; margin-bottom:10px;">High Brightness UHD Signage</p>
+                    <span class="view-btn">View Full Specifications <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="openDetails('hospitality')">
+                <div class="product-img">
+                    <i class="fas fa-hotel fa-4x" style="color:#ccc;"></i>
+                </div>
+                <div class="product-info">
+                    <h3>LG Pro:Centric US660H</h3>
+                    <p style="font-size:0.8rem; color:#666; margin-bottom:10px;">Hospitality TV Solutions</p>
+                    <span class="view-btn">View Full Specifications <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="openDetails('videowall')">
+                <div class="product-img">
+                    <i class="fas fa-th-large fa-4x" style="color:#ccc;"></i>
+                </div>
+                <div class="product-info">
+                    <h3>LG Video Wall VL5F</h3>
+                    <p style="font-size:0.8rem; color:#666; margin-bottom:10px;">Seamless Narrow Bezel Wall</p>
+                    <span class="view-btn">View Full Specifications <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDetails()">&times;</span>
+            <div class="modal-left" id="modalImg">
+                <i class="fas fa-image fa-5x" style="color:#ddd"></i>
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle" style="color:var(--lg-red)">Product Name</h2>
+                <p id="modalDesc" style="color:#666; margin-top:10px;">Description goes here.</p>
+                
+                <table class="spec-table">
+                    <tr><td class="spec-label">Resolution</td><td id="specRes">-</td></tr>
+                    <tr><td class="spec-label">Brightness</td><td id="specBright">-</td></tr>
+                    <tr><td class="spec-label">Operation</td><td id="specOp">-</td></tr>
+                    <tr><td class="spec-label">Software</td><td id="specSw">-</td></tr>
+                    <tr><td class="spec-label">Connectivity</td><td id="specConn">-</td></tr>
+                </table>
+                <button style="margin-top:30px;" class="btn-submit" onclick="closeDetails(); window.location='#contact';">Request Quote for this Model</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="section-padding" style="background:#fff;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">B2B
