@@ -1,0 +1,27 @@
+name: CI/CD Pipeline for Docker Deployment
+
+on:
+  push:
+    branches:
+      - main  # Jab bhi main branch par push hoga, pipeline trigger hogi
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Yeh hamare EC2 runner par job chalayega
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Stop and Remove Old Container
+        run: |
+          docker stop my-web-container || true
+          docker rm my-web-container || true
+
+      - name: Build New Docker Image
+        run: |
+          docker build -t my-html-app:latest .
+
+      - name: Run New Container on Port 3000
+        run: |
+          docker run -d -p 3000:80 --name my-web-container my-html-app:latest
